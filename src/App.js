@@ -19,6 +19,7 @@ function App() {
             </thead>
             <tbody>
             <TodoRowItem />
+            <TodoRowItem />
             </tbody>
           </table>
         </div>
