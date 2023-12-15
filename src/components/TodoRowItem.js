@@ -1,15 +1,12 @@
 import React from 'react';
 
 
-const TodoRowItem = () => {
-    const rowNumber = 1;
-    const rowDescriptiion = "Feed Dog";
-    const rowAssigned = "Eric"
+const TodoRowItem = (props) => {
     return (
         <tr>
-            <th scope="row">{rowAssigned}</th>
-            <td>{rowDescriptiion}</td>
-            <td>{rowAssigned}</td>
+            <th scope="row">{props.rowNumber}</th>
+            <td>{props.rowDescription}</td>
+            <td>{props.rowAssigned}</td>
         </tr>
     )
 };
