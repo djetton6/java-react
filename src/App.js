@@ -1,5 +1,6 @@
 import './App.css';
 import TodoTable from './components/TodoTable';
+import { todos } from './todos';
 
 function App() {
 
@@ -9,7 +10,9 @@ function App() {
         <div className="card-header">
             Java Practice
         </div>
-        <TodoTable />
+        <div className="card-body">
+        <TodoTable todos={todos} />
+        </div>
       </div>
     </div>
   );
