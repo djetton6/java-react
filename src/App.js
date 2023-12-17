@@ -12,7 +12,9 @@ function App() {
         </div>
         <div className="card-body">
         <TodoTable todos={todos} />
+        <button className='btn btn-primary'>Add New Todo</button>
         </div>
+
       </div>
     </div>
   );
