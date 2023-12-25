@@ -1,8 +1,16 @@
 import './App.css';
+import { useState } from 'react';
 import TodoTable from './components/TodoTable';
-import { todos } from './todos';
+import { todosOld } from './todos';
 
 function App() {
+
+  const [todos, setTodos] = useState([
+      {rowNumber: 1, rowDescription: 'Feed puppy', rowAssigned: "User One"},
+      {rowNumber: 2, rowDescription: "Talk with Janette", rowAssigned: "User Two"},
+      {rowNumber: 3, rowDescription: "Go to the gym", rowAssigned: "User One"},
+      {rowNumber: 4, rowDescription: "Jump into the new one", rowAssigned: "Figure Out"}
+    ]);
 
   const handleNewTodo = () => {
     if (todos.length > 0) {
@@ -11,7 +19,7 @@ function App() {
         rowDescription: 'New Todo',
         rowAssigned: 'User Three'
       };
-      todos.push(newTodo);
+      setTodos(todos => [...todos, newTodo])
     }
   }
 
@@ -26,7 +34,6 @@ function App() {
         <button className='btn btn-primary' onClick={handleNewTodo}>
           Add New Todo</button>
         </div>
-
       </div>
     </div>
   );
