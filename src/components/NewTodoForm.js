@@ -1,36 +1,38 @@
 import { useState, React } from "react";
 
-function  NewTodoForm() {
+function  NewTodoForm(props) {
     const [assigned, setAssigned] = useState('');
     const [description, setDescription] = useState('');
 
 
-    const assignedChange = (event) => {
-        console.log('assigned' ,event.target.value)
-        setAssigned(event.target.value);
-    }
+    const submitTodo = () => {
+        if(description !== "" && assigned !== "") {
+            props.addTodo(description, assigned);
+            setDescription(" ")
+            setAssigned(" ")
 
-    const descriptionChange = (event) => {
-        console.log('description', event.target.value);
-        setDescription(event.target.value);
-    }
-    return(
+        }
+
+    };
+
+    return (
         <div className="mt-5">
             <form>
                 <div className="mb-3">
                     <label className="form-label">Assigned</label>
                     <input type="text" className="form-control" required
-                    onChange={assignedChange}></input>
-                    value={assigned}
+                    onChange={event => setAssigned(event.target.value)}
+                    value={assigned}>
+                    </input>
                 </div>
                 <div className="mb-3">
                     <label className="form-label">Description</label>
                     <input type="text" className="form-control" rows={3} required
-                    onChange={descriptionChange}
+                    onChange={event => setDescription(event.target.value)}
                     value={description}
                     ></input>
                 </div>
-                <button type="button" className="btn btn-primary mt-3">Add Todo</button>
+                <button type="button" className="btn btn-primary mt-3" onClick={submitTodo}>Add Todo</button>
             </form>
         </div>
     )
