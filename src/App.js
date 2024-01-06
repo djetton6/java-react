@@ -26,6 +26,13 @@ function App() {
       };
       setTodos(todos => [...todos, newTodo])
     }
+
+  const deleteTodo = (deleteTodoRowNumber) => {
+    let filtered = todos.filter(function (value) {
+      return value.rowNumber !== deleteTodoRowNumber;
+    });
+    setTodos(filtered);
+  }
   
   return (
     <div className='mt-5 container'>
@@ -34,7 +41,7 @@ function App() {
             Java Practice
         </div>
         <div className="card-body">
-        <TodoTable todos={todos} />
+        <TodoTable todos={todos} deleteTodo={deleteTodo} />
         <button className='btn btn-primary' onClick={handleNewTodo}>
           Add New Todo</button>
           <NewTodoForm addTodo={handleNewTodo} />
